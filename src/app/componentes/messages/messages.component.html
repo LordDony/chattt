@@ -1,0 +1,39 @@
+<div class="top-space"></div>
+<div class="container">
+    <div class="columns">
+        <div class="column is-4">
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Send a new message
+                    </p>
+                    <a href="#" class="card-header-icon" aria-label="more options">
+                        <span class="icon">
+                            <i class="fa fa-comments" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-content">
+                    <div class="content">
+                        <div class="field">
+                            <textarea [(ngModel)]="message.message" name="message" class="textarea" placeholder=""></textarea>
+                        </div>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a class="card-footer-item">Send image</a>
+                    <a class="card-footer-item">Clean</a>
+                    <a (click)="onSendMessage()" class="card-footer-item">Send</a>
+                </footer>
+            </div>
+        </div>
+        <div class="column is-8" style="overflow-y: scroll; height: 500px; padding-bottom: 10px;">
+            <div class="notification {{message.status}}" *ngFor="let message of messages">
+                <strong *ngIf="message.user_id == user.id">Tu: </strong>
+                <strong *ngIf="message.user_id != user.id">{{message.user}}: </strong>
+                {{decrypt(message.message)}} <br>
+                <span class="fa fa-clock-o"></span><span style="font-size: 10px; font-weight: bold;"> {{message.created_at}}</span>
+            </div>
+        </div>
+    </div>
+</div>

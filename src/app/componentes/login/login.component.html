@@ -1,0 +1,32 @@
+<div class="container is-fullhd">
+    <div class="columns">
+        <div class="column is-half center">
+            <div class="top-space"></div>
+            <article class="panel is-primary">
+                <p class="panel-heading">
+                    Login de acceso
+                </p>
+                {{message}}
+                <div *ngIf="message" class="notification is-danger">{{message}}</div>
+                <div class="panel-block" class="padding-lg">
+                    <div class="field padding-intern">
+                        <div class="control">
+                            <input class="input is-medium" type="email" [(ngModel)]="user.email" name="email"  placeholder="Ingresa tu email">
+                        </div>
+                    </div>
+                    <div class="top-space"></div>
+                    <div class="field padding-intern">
+                        <div class="control">
+                            <input class="input is-medium" type="password" [(ngModel)]="user.password" name="password" placeholder="Ingresa tu contraseña">
+                        </div>
+                    </div>
+                    <div class="top-space"></div>
+                    <div (click)="onLogin()" class="buttons field padding-intern">
+                        <button class="button is-primary">Acceder</button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</div>

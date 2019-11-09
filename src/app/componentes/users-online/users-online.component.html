@@ -1,0 +1,38 @@
+<div class="container is-fullhd">
+    <div class="top-space"></div>
+    <table class="table" style="width: 30%; margin: auto;">
+        <thead>
+            <tr class="center">
+                <th>Conversaciones <span class="tag fa fa-check is-primary"></span></th>
+            </tr>
+        </thead>
+        <tbody style="height: 300px; overflow-y: scroll;">
+            <tr *ngFor="let conversation of conversations" class="over-tr" style="height: 50px; line-height: 50px;">
+                <td *ngIf="conversation.id_one == user.id" routerLink="/messages/{{conversation.conversation_id}}" class="padding-intern"><i class="fa fa-check tag  {{conversation.statustwo}}"
+                        aria-hidden="true"></i> {{conversation.usernametwo}}</td>
+            </tr>
+            <tr *ngFor="let conversation of conversations" class="over-tr" style="height: 50px; line-height: 50px;">
+                <td *ngIf="conversation.id_one != user.id" routerLink="/messages/{{conversation.conversation_id}}" class="padding-intern"><i class="fa fa-check tag  {{conversation.statusone}}"
+                        aria-hidden="true"></i> {{conversation.usernameone}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container is-fullhd">
+    <div class="top-space"></div>
+    <table class="table" style="width: 30%; margin: auto;">
+        <thead>
+            <tr class="center">
+                <th>Iniciar nueva conversaciòn</th>
+            </tr>
+        </thead>
+        <tbody style="height: 300px; overflow-y: scroll;">
+            <tr *ngFor="let user of usersOnline" class="over-tr" style="height: 50px; line-height: 50px;">
+                <td (click)="onNewConversation(user)" class="padding-intern"><i class="fa fa-check tag  {{user.status}}"
+                        aria-hidden="true"></i> {{user.username}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
